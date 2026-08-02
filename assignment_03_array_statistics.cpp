@@ -42,3 +42,67 @@
 #include <iostream>
 using namespace std;
 
+using namespace std;
+
+int getSum(const vector<int>& nums) {
+    int total = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        total += nums[i];
+    }
+    return total;
+}
+
+double getAverage(const vector<int>& nums) {
+    int total = 0;
+    for (int i = 0; i < nums.size(); i++) {
+        total += nums[i];
+    }
+    return (double)total / nums.size();
+}
+
+int getMax(const vector<int>& nums) {
+    int maximum = nums;
+    for (int i = 1; i < nums.size(); i++) {
+        if (nums[i] > maximum) {
+            maximum = nums[i];
+        }
+    }
+    return maximum;
+}
+
+int getMin(const vector<int>& nums) {
+    int minimum = nums;
+    for (int i = 1; i < nums.size(); i++) {
+        if (nums[i] < minimum) {
+            minimum = nums[i];
+        }
+    }
+    return minimum;
+}
+
+int main() {
+    int n;
+    cout << "How many numbers? ";
+    cin >> n;
+
+    if (n <= 0) {
+        cout << "Error: N must be a positive integer." << endl;
+        return 0;
+    }
+
+    vector<int> numbers;
+    for (int i = 0; i < n; i++) {
+        int temp;
+        cout << "Enter number " << (i + 1) << ": ";
+        cin >> temp;
+        numbers.push_back(temp);
+    }
+
+    cout << endl << "Results:" << endl;
+    cout << "Sum:     " << getSum(numbers) << endl;
+    cout << "Average: " << getAverage(numbers) << endl;
+    cout << "Maximum: " << getMax(numbers) << endl;
+    cout << "Minimum: " << getMin(numbers) << endl;
+
+    return 0;
+}
